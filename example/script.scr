@@ -1,0 +1,31 @@
+func double(x) {
+    return x*2;
+}
+
+func quad(x) {
+    return double(x) * 2;
+}
+
+func hello(x) {
+    var name = "Hello " + x;
+    return name;
+}
+
+func factorial(x) {
+    if x > 1 {
+        return x * factorial(x-1);
+    } else {
+        return 1;
+    }
+}
+
+func pow(x, y) {
+    var ret = x;
+
+    while y > 1 {
+        ret = ret * x;
+        y = y - 1;
+    }
+
+    return ret;
+}

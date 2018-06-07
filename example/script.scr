@@ -2,10 +2,6 @@ func double(x) {
     return x*2;
 }
 
-func quad(x) {
-    return double(x) * 2;
-}
-
 func hello(x) {
     var name = "Hello " + x;
     return name;
@@ -28,4 +24,21 @@ func pow(x, y) {
     }
 
     return ret;
+}
+
+func doubleplussum(list) {
+    var out = 0;
+    out = out + sum(list);
+    out = out + sum(list);
+    return out;
+}
+
+func sum(list) {
+    var out = 0;
+
+    for e in list {
+        out = out + e;
+    }
+
+    return out;
 }

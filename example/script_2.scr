@@ -1,0 +1,5 @@
+import "example/script.scr" as sc;
+
+func quad(x) {
+    return sc::double(x) * 2;
+}

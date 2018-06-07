@@ -23,6 +23,8 @@ fn main() {
     }
     
     println!("Modscript");
+    
+    let mut state = Scope::new();
 
     loop {
         // accept a line of input
@@ -36,15 +38,21 @@ fn main() {
             _ => {},
         }
 
+        if !input.ends_with(";\n") {
+            input = format!("return {};", input);
+        }
+
         let s = match script_from_text(&packs, &input) {
             Ok(s) => s,
             Err(e) => {eprintln!("Compile error: {}", e); continue},
         };
 
-        match s.run(&fns) {
+        match s.repl_run(&mut state, &fns) {
             Signal::Done => {},
-            Signal::Return(v) => println!("{}", v),
+            Signal::Return(v) => println!("> {}", v),
             Signal::Error(e) => eprintln!("Runtime error: {}", e),
+            Signal::Continue => eprintln!("Runtime error: Continue not allowed."),
+            Signal::Break => eprintln!("Runtime error: Break not allowed."),
         }
     }
 }

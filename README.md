@@ -7,4 +7,5 @@ Each statement must fit on a single line, you can run lists of statements by put
 ## TODO
 * Curses support
 * Ability to name packages (maybe)
-* Multi-line statements
+* Persistent scope
+* Multi-line statements (;;)

@@ -17,7 +17,7 @@ fn main() {
         };
 
         fns.attach_package(&a, p.call_ref());
-        packs.push(("pack".to_string(), a.clone()));
+        //packs.push(("pack".to_string(), a.clone()));
 
         println!("Attached package {}", a);
     }
@@ -36,6 +36,21 @@ fn main() {
             Ok(0) => break,
             Err(e) => panic!("Stdin error: {}", e),
             _ => {},
+        }
+
+        // Sanitise input
+        if input.starts_with("import") {
+            let v = input.split(char::is_whitespace).collect::<Vec<&str>>();
+
+            if v.len() == 3 {
+                packs.push((v[1].to_string(), v[1].to_string()));
+            } else if v.len() == 5 && v[2] == "as" {
+                packs.push((v[3].to_string(), v[1].to_string()));
+            } else {
+                eprintln!("Runtime error: Invalid import statement.");
+            }
+
+            continue;
         }
 
         if !input.ends_with(";\n") {

@@ -28,8 +28,8 @@ func pow(x, y) {
 
 func doubleplussum(list) {
     var out = 0;
-    out = out + sum(list);
-    out = out + sum(list);
+    out += sum(list);
+    out += sum(list);
     return out;
 }
 
@@ -37,7 +37,7 @@ func sum(list) {
     var out = 0;
 
     for e in list {
-        out = out + e;
+        out += e;
     }
 
     return out;

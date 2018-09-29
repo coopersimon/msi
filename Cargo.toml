@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["coopersimon <simon.d.cooper@hotmail.co.uk>"]
 
 [dependencies]
-#modscript = {path = "../modscript"}
-modscript = {git = "https://github.com/coopersimon/modscript"}
+modscript = {path = "../modscript"}
+#modscript = {git = "https://github.com/coopersimon/modscript"}

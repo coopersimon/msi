@@ -6,7 +6,7 @@ Each statement must fit on a single line, you can run lists of statements by put
 
 If you write an expression (without a closing semicolon), it will return the value.
 
-You can write "import x as y" to import package files, where x is the file name (no "quotes" needed), and y is what you want to nickname the package. Alternatively, write "import x" to import the package with no nickname.
+You can write `import x as y` to import package files, where `x` is the file name, and `y` is what you want to nickname the package. Alternatively, write `import x` to import the package with no nickname.
 
 ## TODO
 * Curses support

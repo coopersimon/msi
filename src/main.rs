@@ -59,15 +59,15 @@ fn main() {
 
         let s = match script_from_text(&packs, &input) {
             Ok(s) => s,
-            Err(e) => {eprintln!("Compile error: {}", e); continue},
+            Err(e) => {eprintln!("{}", e); continue},
         };
 
         match s.repl_run(&mut state, &fns) {
             Signal::Done => {},
             Signal::Return(v) => println!("> {}", v),
-            Signal::Error(e) => eprintln!("Runtime error: {}", e),
-            Signal::Continue => eprintln!("Runtime error: Continue not allowed."),
-            Signal::Break => eprintln!("Runtime error: Break not allowed."),
+            Signal::Error(e) => eprintln!("{}", e),
+            Signal::Continue => eprintln!("Continue not allowed."),
+            Signal::Break => eprintln!("Break not allowed."),
         }
     }
 }
